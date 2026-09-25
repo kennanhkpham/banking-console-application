@@ -1,0 +1,22 @@
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\bin\Debug\net10.0\bankLIB.deps.json
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\bin\Debug\net10.0\bankLIB.dll
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\bin\Debug\net10.0\bankLIB.pdb
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\obj\Debug\net10.0\bankLIB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\obj\Debug\net10.0\bankLIB.AssemblyInfoInputs.cache
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\obj\Debug\net10.0\bankLIB.AssemblyInfo.cs
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\obj\Debug\net10.0\bankLIB.csproj.CoreCompileInputs.cache
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\obj\Debug\net10.0\bankLIB.dll
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\obj\Debug\net10.0\refint\bankLIB.dll
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\obj\Debug\net10.0\bankLIB.pdb
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\2_layer_application_practice\bankLIB\obj\Debug\net10.0\ref\bankLIB.dll
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\bin\Debug\net10.0\bankLIB.deps.json
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\bin\Debug\net10.0\bankLIB.dll
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\bin\Debug\net10.0\bankLIB.pdb
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\obj\Debug\net10.0\bankLIB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\obj\Debug\net10.0\bankLIB.AssemblyInfoInputs.cache
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\obj\Debug\net10.0\bankLIB.AssemblyInfo.cs
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\obj\Debug\net10.0\bankLIB.csproj.CoreCompileInputs.cache
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\obj\Debug\net10.0\bankLIB.dll
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\obj\Debug\net10.0\refint\bankLIB.dll
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\obj\Debug\net10.0\bankLIB.pdb
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankLIB\obj\Debug\net10.0\ref\bankLIB.dll
