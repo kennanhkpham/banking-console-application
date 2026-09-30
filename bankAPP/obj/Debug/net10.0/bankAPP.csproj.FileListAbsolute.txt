@@ -313,3 +313,5 @@ C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software De
 C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankAPP\obj\Debug\net10.0\ref\bankAPP.dll
 C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankAPP\bin\Debug\net10.0\appsettings.json
 C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankAPP\bin\Debug\net10.0\bankAPP.exe
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankApp\obj\Debug\net10.0\bankAPP.sourcelink.json
+C:\Users\kenna\OneDrive\Desktop\Reventure Job Training - Associative Software Developer\coding_practice\Project 1\bankAPP\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll

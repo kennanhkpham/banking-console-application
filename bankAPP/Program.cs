@@ -12,6 +12,7 @@ using System.Collections;
 using System.Transactions;
 using System.Net.Http.Headers;
 using System.Data;
+using Microsoft.IdentityModel.Tokens;
 
 #region Connecting the Code to DB through DbContext()
 var builder = WebApplication.CreateBuilder(args);
@@ -21,8 +22,10 @@ var connectionString = builder.Configuration.GetConnectionString("userBankManage
 
 builder.Services.AddDbContext<UserBankManagementDbContext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddSingleton<JwtTokenService>();
 
 var host = builder.Build();
+var jwtTokenService = host.Services.GetRequiredService<JwtTokenService>();
 
 UserBankManagementDbContext GetDbContext() => host.Services.CreateScope().ServiceProvider.GetRequiredService<UserBankManagementDbContext>();
 
@@ -79,8 +82,21 @@ while(onMainMenu)
                             && string.Equals(a.Password, c_pass_input, StringComparison.Ordinal));
                     if(currentCustomer != null)
                     {
+                        string customerToken = jwtTokenService.CreateToken(
+                            currentCustomer.Username,
+                            "Customer",
+                            currentCustomer.AccNo);
+                        var customerPrincipal = jwtTokenService.ValidateToken(customerToken);
+                        if (!customerPrincipal.IsInRole("Customer") ||
+                            customerPrincipal.FindFirst("account_number")?.Value != currentCustomer.AccNo.ToString())
+                        {
+                            Console.WriteLine("Customer authentication failed.");
+                            break;
+                        }
+                        Console.WriteLine($"JWT authenticated {customerPrincipal.Identity?.Name} as Customer (expires in 15 minutes).");
+
                         bool oncustomerMenu = true;
-                        while(oncustomerMenu)
+                        while(oncustomerMenu && IsTokenAuthorized(jwtTokenService, customerToken, "Customer"))
                         {
                             Console.WriteLine("What would you like to do?");
                             Console.WriteLine("1. Check Account Details");
@@ -92,6 +108,12 @@ while(onMainMenu)
                             Console.WriteLine("7. Change Password");
                             Console.WriteLine("8. Exit");
                             int c_accInput = ReadMenuChoice();
+                            if (!IsTokenAuthorized(jwtTokenService, customerToken, "Customer"))
+                            {
+                                oncustomerMenu = false;
+                                Console.WriteLine("Customer session expired or is no longer valid. Please log in again.");
+                                break;
+                            }
                             switch(c_accInput)
                             {
                                 case 1:
@@ -223,6 +245,10 @@ while(onMainMenu)
                                     break;
                             }
                         }
+                        if (oncustomerMenu)
+                        {
+                            Console.WriteLine("Customer session expired or is no longer valid. Please log in again.");
+                        }
                     }
                 else
                 {
@@ -241,8 +267,17 @@ while(onMainMenu)
                 string a_pass_input = PasswordReader.ReadPassword();
                 if(adminPassword == a_pass_input)
                 {
+                    string adminToken = jwtTokenService.CreateToken(adminUsername, "Admin");
+                    var adminPrincipal = jwtTokenService.ValidateToken(adminToken);
+                    if (!adminPrincipal.IsInRole("Admin") || adminPrincipal.Identity?.Name != adminUsername)
+                    {
+                        Console.WriteLine("Admin authentication failed.");
+                        break;
+                    }
+                    Console.WriteLine($"JWT authenticated {adminPrincipal.Identity.Name} as Admin (expires in 15 minutes).");
+
                     bool onadminMenu = true;
-                    while(onadminMenu)
+                    while(onadminMenu && IsTokenAuthorized(jwtTokenService, adminToken, "Admin"))
                     {
                         Console.WriteLine("What would you like to do?");
                         Console.WriteLine("1. Create New Account");
@@ -253,6 +288,12 @@ while(onMainMenu)
                         Console.WriteLine("6. Approve Cheque Book Request");
                         Console.WriteLine("7. Exit");
                         int a_accInput = ReadMenuChoice();
+                        if (!IsTokenAuthorized(jwtTokenService, adminToken, "Admin"))
+                        {
+                            onadminMenu = false;
+                            Console.WriteLine("Admin session expired or is no longer valid. Please log in again.");
+                            break;
+                        }
                         switch(a_accInput)
                         {
                             case 1:
@@ -487,6 +528,10 @@ while(onMainMenu)
                                         }
                                     }
                                 }
+                                if (onadminMenu)
+                                {
+                                    Console.WriteLine("Admin session expired or is no longer valid. Please log in again.");
+                                }
 
                                 break;
                             case 7:
@@ -525,5 +570,16 @@ while(onMainMenu)
 static int ReadMenuChoice()
 {
     return int.TryParse(Console.ReadLine(), out int choice) ? choice : -1;
+}
+static bool IsTokenAuthorized(JwtTokenService tokenService, string token, string requiredRole)
+{
+    try
+    {
+        return tokenService.ValidateToken(token).IsInRole(requiredRole);
+    }
+    catch (SecurityTokenException)
+    {
+        return false;
+    }
 }
 #endregion
